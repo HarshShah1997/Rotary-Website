@@ -2,7 +2,7 @@ from django.db import models
 
 
 class Event(models.Model):
-    start_time = models.DateTimeField(auto_now_add=True)
+    start_time = models.DateTimeField()
     end_time = models.DateTimeField(null=True, blank=True)
     title = models.CharField(max_length=100)
     description = models.TextField()
