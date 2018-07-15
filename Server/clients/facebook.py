@@ -10,6 +10,13 @@ FILE_NAME = 'config.json'
 
 class FacebookClient(object):
 
+    @classmethod
+    def get_client(cls):
+        if not hasattr(cls, '_instance'):
+            inst = FacebookClient()
+            cls._instance = inst
+        return cls._instance
+
     def __init__(self):
         config = retrieve_config()
         self.access_token = config['AccessToken']
@@ -72,7 +79,6 @@ def generate_token_prompt():
 
 
 def get_field(byte_str, field):
-    print(byte_str)
     return json.loads(str(byte_str, 'utf-8'))[field]
 
 

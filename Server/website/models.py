@@ -6,8 +6,8 @@ class Event(models.Model):
     end_time = models.DateTimeField(null=True, blank=True)
     title = models.CharField(max_length=100)
     description = models.TextField()
-    fb_event_id = models.IntegerField(default=-1)
-    fb_album_id = models.IntegerField(default=-1)
+    fb_event_id = models.BigIntegerField(default=-1)
+    fb_album_id = models.BigIntegerField(default=-1)
 
     def __str__(self):
         return self.title
@@ -32,8 +32,8 @@ class BoardMember(models.Model):
 
 
 class Photo(models.Model):
-    fb_id = models.IntegerField(db_index=True, primary_key=True)
-    fb_album_id = models.IntegerField()
+    fb_id = models.BigIntegerField(db_index=True, primary_key=True)
+    fb_album_id = models.BigIntegerField()
     album_name = models.CharField(max_length=100)
     fb_link = models.CharField(max_length=2000)
 
